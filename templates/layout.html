@@ -27,6 +27,25 @@
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7717242133259434"
      crossorigin="anonymous"></script>
+    <!-- Manifest for PWA -->
+<link rel="manifest" href="{{ url_for('manifest') }}">
+<meta name="theme-color" content="#212529">
+
+<!-- Service Worker registration -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('{{ url_for("service_worker") }}')
+        .then(function (registration) {
+          console.log('ServiceWorker zarejestrowany:', registration.scope);
+        }, function (err) {
+          console.log('Błąd rejestracji ServiceWorker:', err);
+        });
+    });
+  }
+</script>
+
+    
 </head>
 <body>
     <!-- Navbar -->

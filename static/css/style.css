@@ -1,0 +1,327 @@
+/* Base Styles */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #121212;
+    color: #f8f9fa;
+}
+
+footer {
+    margin-top: auto;
+}
+
+/* Map Styles */
+#map {
+    height: 600px;
+    width: 100%;
+    border-radius: 0.3rem;
+}
+
+.map-marker {
+    background-color: #0d6efd;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    position: relative;
+}
+
+/* Styl dla numeracji markerów */
+.marker-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.marker-number {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #dc3545;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+/* Location Popup Styles */
+.location-popup {
+    padding: 5px;
+    min-width: 200px;
+}
+
+.location-category {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-top: 5px;
+    font-size: 0.8rem;
+    background-color: #495057;
+}
+
+.location-category.home {
+    background-color: #198754;
+}
+
+.location-category.office {
+    background-color: #0d6efd;
+}
+
+.location-category.business {
+    background-color: #6f42c1;
+}
+
+.location-category.pickup_point {
+    background-color: #fd7e14;
+}
+
+.location-category.other {
+    background-color: #6c757d;
+}
+
+.time-window {
+    font-size: 0.8rem;
+    margin-top: 5px;
+    color: #adb5bd;
+}
+
+/* Analytics Styles */
+.analytics-card {
+    background-color: #25292e;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.analytics-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.analytics-label {
+    color: #adb5bd;
+    font-size: 0.9rem;
+}
+
+.chart-container {
+    background-color: #25292e;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .mobile-column-layout {
+        flex-direction: column-reverse;
+    }
+    
+    #map {
+        height: 400px;
+    }
+    
+    .analytics-value {
+        font-size: 2rem;
+    }
+}
+
+/* iOS Install Prompt */
+.ios-install-prompt {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(25, 135, 84, 0.95);
+    color: white;
+    padding: 12px;
+    text-align: center;
+    z-index: 1000;
+    display: none;
+}
+
+.ios-prompt-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.ios-prompt-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* Swipe Styles for Mobile */
+.location-entry {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.location-entry.swiped {
+    transform: translateX(-80px);
+}
+
+.swipe-delete-btn {
+    position: absolute;
+    right: -60px;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    background-color: #dc3545;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    border-radius: 0 0.25rem 0.25rem 0;
+    cursor: pointer;
+}
+
+/* Route Items */
+.route-list-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #343a40;
+}
+
+.route-list-item:last-child {
+    border-bottom: none;
+}
+
+/* Navigation Styles */
+.navigation-instructions {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #25292e;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.navigation-step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #343a40;
+}
+
+.navigation-step.active {
+    background-color: #0d6efd;
+}
+
+.navigation-icon {
+    margin-right: 10px;
+    font-size: 1.2rem;
+    width: 24px;
+    text-align: center;
+}
+
+.navigation-distance {
+    margin-left: auto;
+    font-size: 0.9rem;
+    color: #adb5bd;
+}
+
+.arrival-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #198754;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Loading indicators */
+.loading-indicator {
+    display: none;
+    text-align: center;
+    padding: 20px;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 15px auto;
+    border: 4px solid #343a40;
+    border-top: 4px solid #0d6efd;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Weather Badge */
+.weather-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    background-color: #343a40;
+    margin-top: 5px;
+}
+
+.weather-icon {
+    margin-right: 5px;
+}
+
+/* Traffic indicators */
+.traffic-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.traffic-free {
+    background-color: #198754;
+}
+
+.traffic-light {
+    background-color: #ffc107;
+}
+
+.traffic-moderate {
+    background-color: #fd7e14;
+}
+
+.traffic-heavy {
+    background-color: #dc3545;
+}
+
+/* Leaflet specific styles */
+.leaflet-popup-content {
+    margin: 10px;
+}
+
+.leaflet-popup-content-wrapper {
+    border-radius: 8px;
+}
+
+.leaflet-control-locate a {
+    color: #0d6efd;
+}

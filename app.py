@@ -28,6 +28,13 @@ login_manager.init_app(app)
 def ads():
     return send_from_directory("static", "ads.txt")
 
+@app.route('/service-worker.js')
+def service_worker():
+    return send_from_directory('static', 'service-worker.js')
+
+@app.route('/manifest.json')
+def manifest():
+    return send_from_directory('static', 'manifest.json')
 
 @login_manager.user_loader
 def load_user(user_id):

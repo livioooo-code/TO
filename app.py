@@ -1,6 +1,6 @@
 import os
 import logging
-from flask import Flask
+from flask import Flask, send_from_directory  # <--- dodaj send_from_directory
 from extensions import db, login_manager
 import models  # Import models to register them with SQLAlchemy
 
@@ -22,6 +22,12 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 # Initialize extensions with the app
 db.init_app(app)
 login_manager.init_app(app)
+
+# ✅ Route do obsługi ads.txt
+@app.route("/ads.txt")
+def ads():
+    return send_from_directory("static", "ads.txt")
+
 
 @login_manager.user_loader
 def load_user(user_id):
